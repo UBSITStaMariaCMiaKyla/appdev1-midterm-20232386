@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "appdev1-midterm-20232386": {
+    "taskflow": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -25,7 +25,11 @@
               }
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
+            ],
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
           },
           "configurations": {
@@ -56,10 +60,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "appdev1-midterm-20232386:build:production"
+              "buildTarget": "taskflow:build:production"
             },
             "development": {
-              "buildTarget": "appdev1-midterm-20232386:build:development"
+              "buildTarget": "taskflow:build:development"
             }
           },
           "defaultConfiguration": "development"
