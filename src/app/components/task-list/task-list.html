@@ -1,37 +1,46 @@
-<div class="d-flex justify-content-between align-items-center mb-3">
-    <h2>All Tasks</h2>
+<div class="page-header">
+    <div>
+      <h2>All Tasks</h2>
+      <span class="task-count">{{ tasks.length }} tasks total</span>
+    </div>
     <a routerLink="/tasks/new" class="btn btn-primary">+ Add Task</a>
   </div>
   
   <div *ngIf="tasks.length === 0" class="alert alert-info">
-    No tasks found. Click "Add Task" to get started!
+    No tasks yet. Click "+ Add Task" to get started.
   </div>
   
-  <div class="table-responsive" *ngIf="tasks.length > 0">
-    <table class="table table-striped table-hover align-middle">
-      <thead class="table-dark">
-        <tr>
-          <th>#</th>
-          <th>Title</th>
-          <th>Due Date</th>
-          <th>Priority</th>
-          <th>Status</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let task of tasks">
-          <td>{{ task.id }}</td>
-          <td>{{ task.title }}</td>
-          <td>{{ task.dueDate }}</td>
-          <td><span [class]="getPriorityClass(task.priority)">{{ task.priority }}</span></td>
-          <td><span [class]="getStatusClass(task.status)">{{ task.status }}</span></td>
-          <td>
-            <a [routerLink]="['/tasks', task.id]" class="btn btn-sm btn-info me-1">View</a>
-            <button class="btn btn-sm btn-warning me-1" (click)="toggleStatus(task.id)">Toggle</button>
-            <button class="btn btn-sm btn-danger" (click)="deleteTask(task.id)">Delete</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <div *ngFor="let task of tasks"
+    class="task-card"
+    [class.priority-high]="task.priority === 'High'"
+    [class.priority-medium]="task.priority === 'Medium'"
+    [class.priority-low]="task.priority === 'Low'">
+  
+    <span class="task-id">#{{ task.id }}</span>
+    <span class="task-title">{{ task.title }}</span>
+  
+    <div class="task-badges">
+      <span [class]="getPriorityClass(task.priority)">{{ task.priority }}</span>
+      <span [class]="getStatusClass(task.status)">{{ task.status }}</span>
+    </div>
+  
+    <span class="task-due">{{ task.dueDate }}</span>
+  
+    <div class="task-actions">
+      <a [routerLink]="['/tasks', task.id]" class="btn btn-info">View</a>
+      <button class="btn btn-warning" (click)="toggleStatus(task.id)">Toggle</button>
+      <button class="btn btn-danger" (click)="confirmDelete(task.id, task.title)">Delete</button>
+    </div>
+  </div>
+  
+  <!-- Custom Delete Modal -->
+  <div class="modal-backdrop" *ngIf="showModal">
+    <div class="modal-box">
+      <p class="modal-title">Delete Task</p>
+      <p class="modal-message">Are you sure you want to delete <strong>{{ taskToDeleteTitle }}</strong>?</p>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" (click)="cancelDelete()">Cancel</button>
+        <button class="btn btn-danger" (click)="confirmDeleteFinal()">Delete</button>
+      </div>
+    </div>
   </div>

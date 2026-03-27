@@ -1,1 +1,30 @@
-<p>task-info works!</p>
+<div *ngIf="task">
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <th class="table-secondary" style="width: 30%">Title</th>
+          <td>{{ task.title }}</td>
+        </tr>
+        <tr>
+          <th class="table-secondary">Description</th>
+          <td>{{ task.description }}</td>
+        </tr>
+        <tr>
+          <th class="table-secondary">Due Date</th>
+          <td>{{ task.dueDate }}</td>
+        </tr>
+        <tr>
+          <th class="table-secondary">Priority</th>
+          <td><span [class]="getPriorityClass(task.priority)">{{ task.priority }}</span></td>
+        </tr>
+        <tr>
+          <th class="table-secondary">Status</th>
+          <td>{{ task.status }}</td>
+        </tr>
+        <tr>
+          <th class="table-secondary">Created At</th>
+          <td>{{ task.createdAt }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

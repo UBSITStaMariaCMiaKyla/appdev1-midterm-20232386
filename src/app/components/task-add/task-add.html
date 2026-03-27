@@ -1,1 +1,52 @@
-<p>task-add works!</p>
+<div class="row justify-content-center">
+    <div class="col-md-8">
+      <h2 class="mb-4">Add New Task</h2>
+  
+      <div *ngIf="showError" class="alert alert-danger">
+        Please fill in all required fields.
+      </div>
+      <div *ngIf="showSuccess" class="alert alert-success">
+        Task added successfully! Redirecting...
+      </div>
+  
+      <form (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="title" class="form-label">Title <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="title" [(ngModel)]="title" name="title" placeholder="Enter task title">
+        </div>
+  
+        <div class="mb-3">
+          <label for="description" class="form-label">Description <span class="text-danger">*</span></label>
+          <textarea class="form-control" id="description" [(ngModel)]="description" name="description" rows="3" placeholder="Enter task description"></textarea>
+        </div>
+  
+        <div class="mb-3">
+          <label for="dueDate" class="form-label">Due Date <span class="text-danger">*</span></label>
+          <input type="date" class="form-control" id="dueDate" [(ngModel)]="dueDate" name="dueDate">
+        </div>
+  
+        <div class="mb-3">
+          <label for="priority" class="form-label">Priority</label>
+          <select class="form-select" id="priority" [(ngModel)]="priority" name="priority">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+        </div>
+  
+        <div class="mb-3">
+          <label for="status" class="form-label">Status</label>
+          <select class="form-select" id="status" [(ngModel)]="status" name="status">
+            <option value="Pending">Pending</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+          </select>
+        </div>
+  
+        <div class="d-flex gap-2">
+          <button type="submit" class="btn btn-primary">Add Task</button>
+          <a routerLink="/tasks" class="btn btn-secondary">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>

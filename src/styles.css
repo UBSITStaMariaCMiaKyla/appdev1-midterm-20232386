@@ -1,1 +1,352 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap');
+
+* {
+  font-family: 'DM Sans', sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #eef1f7;
+  color: #1a1f2e;
+  margin: 0;
+}
+
+/* NAVBAR */
+.navbar {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #e0e4ed;
+  padding: 0.8rem 1.5rem;
+  box-shadow: none;
+}
+
+/* NAVBAR */
+.navbar {
+    background-color: #2c2c2c !important;
+    border-bottom: 1px solid #3a3a3a;
+    padding: 0.8rem 1.5rem;
+    box-shadow: none;
+  }
+  
+  .navbar-brand {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff !important;
+    letter-spacing: 0.5px;
+  }
+  
+  .nav-link {
+    color: #cccccc !important;
+    font-size: 0.83rem;
+    font-weight: 400;
+    padding: 0.3rem 0.8rem !important;
+    border-radius: 20px;
+    transition: all 0.2s;
+  }
+  
+  .nav-link:hover,
+  .nav-link.active {
+    color: #ffffff !important;
+    background-color: #3a3a3a;
+  }
+
+/* LAYOUT */
+.container {
+  max-width: 1000px;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1a1f2e;
+  margin-bottom: 0;
+}
+
+/* TASK CARDS */
+.task-card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-left: 4px solid #c5cad6;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  transition: box-shadow 0.2s;
+}
+
+.task-card:hover {
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.task-card.priority-high {
+  border-left-color: #e05c5c;
+}
+
+.task-card.priority-medium {
+  border-left-color: #e8a838;
+}
+
+.task-card.priority-low {
+  border-left-color: #4caf82;
+}
+
+.task-card .task-id {
+  font-size: 0.72rem;
+  color: #b0b8c8;
+  font-weight: 500;
+  min-width: 20px;
+}
+
+.task-card .task-title {
+  flex: 1;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #1a1f2e;
+}
+
+.task-card .task-due {
+  font-size: 0.78rem;
+  color: #8892a4;
+  min-width: 90px;
+  text-align: right;
+}
+
+.task-card .task-badges {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.task-card .task-actions {
+  display: flex;
+  gap: 0.3rem;
+}
+
+/* BADGES */
+.badge {
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 0.28em 0.65em;
+  border-radius: 20px;
+  letter-spacing: 0.2px;
+}
+
+.badge.bg-danger    { background-color: #fde8e8 !important; color: #c0392b !important; }
+.badge.bg-warning   { background-color: #fef3dc !important; color: #9a6700 !important; }
+.badge.bg-success   { background-color: #e4f5ec !important; color: #2d6a4f !important; }
+.badge.bg-primary   { background-color: #ddeaf8 !important; color: #1a4f8a !important; }
+.badge.bg-secondary { background-color: #eef1f7 !important; color: #8892a4 !important; }
+.text-dark { color: #9a6700 !important; }
+
+/* BUTTONS */
+.btn {
+  font-size: 0.78rem;
+  border-radius: 6px;
+  font-weight: 500;
+  border: none;
+  padding: 0.28rem 0.7rem;
+}
+
+.btn-primary {
+  background-color: #1a1f2e;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #2c3550;
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: #eef1f7;
+  color: #1a1f2e;
+}
+
+.btn-secondary:hover {
+  background-color: #dde2ec;
+  color: #1a1f2e;
+}
+
+.btn-success {
+  background-color: #2d6a4f;
+  color: #fff;
+}
+
+.btn-danger {
+  background-color: #fde8e8;
+  color: #c0392b;
+}
+
+.btn-danger:hover {
+  background-color: #f5c6c6;
+  color: #922b21;
+}
+
+.btn-warning {
+  background-color: #eef1f7;
+  color: #1a1f2e;
+}
+
+.btn-warning:hover {
+  background-color: #dde2ec;
+  color: #1a1f2e;
+}
+
+.btn-info {
+  background-color: #ddeaf8;
+  color: #1a4f8a;
+}
+
+.btn-info:hover {
+  background-color: #c5d8f0;
+  color: #1a4f8a;
+}
+
+/* CARD (detail page) */
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.card-header {
+  background-color: #1a1f2e !important;
+  border-radius: 10px 10px 0 0 !important;
+  padding: 1rem 1.25rem;
+}
+
+/* TABS */
+.nav-tabs {
+  border-bottom: 1px solid #e0e4ed;
+}
+
+.nav-tabs .nav-link {
+  color: #8892a4 !important;
+  font-size: 0.83rem;
+  border: none;
+  padding: 0.45rem 1rem;
+  border-radius: 0;
+}
+
+.nav-tabs .nav-link.active {
+  color: #1a1f2e !important;
+  font-weight: 600;
+  border-bottom: 2px solid #1a1f2e;
+  background: transparent;
+}
+
+/* TABLE (info page) */
+.table {
+  font-size: 0.87rem;
+  background: #fff;
+}
+
+.table th {
+  font-weight: 500;
+  color: #8892a4;
+  border-color: #eef1f7;
+  padding: 0.65rem 1rem;
+}
+
+.table td {
+  border-color: #eef1f7;
+  padding: 0.65rem 1rem;
+  color: #1a1f2e;
+  vertical-align: middle;
+}
+
+.table-secondary {
+  background-color: #f8fafc !important;
+}
+
+/* FORMS */
+.form-control,
+.form-select {
+  font-size: 0.87rem;
+  border: 1px solid #dde2ec;
+  border-radius: 7px;
+  background-color: #ffffff;
+  padding: 0.5rem 0.8rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #1a1f2e;
+  box-shadow: 0 0 0 0.12rem rgba(26,31,46,0.12);
+}
+
+.form-label {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #4a5568;
+  margin-bottom: 0.3rem;
+}
+
+/* ALERTS */
+.alert {
+  font-size: 0.84rem;
+  border-radius: 8px;
+  border: none;
+}
+
+.alert-danger  { background-color: #fde8e8; color: #922b21; }
+.alert-success { background-color: #e4f5ec; color: #2d6a4f; }
+.alert-info    { background-color: #ddeaf8; color: #1a4f8a; }
+
+/* PAGE HEADER */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.task-count {
+  font-size: 0.78rem;
+  color: #8892a4;
+  font-weight: 400;
+}
+
+/* CUSTOM MODAL */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(26, 31, 46, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(2px);
+  }
+  
+  .modal-box {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 1.8rem 2rem;
+    width: 100%;
+    max-width: 380px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  }
+  
+  .modal-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1a1f2e;
+    margin-bottom: 0.5rem;
+  }
+  
+  .modal-message {
+    font-size: 0.85rem;
+    color: #5a6478;
+    margin-bottom: 1.4rem;
+    line-height: 1.5;
+  }
+  
+  .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }

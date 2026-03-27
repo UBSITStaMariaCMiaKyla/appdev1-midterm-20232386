@@ -1,1 +1,44 @@
-<p>task-edit works!</p>
+<div *ngIf="task">
+    <div *ngIf="showError" class="alert alert-danger">
+      Please fill in all required fields.
+    </div>
+  
+    <form (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="title" class="form-label">Title <span class="text-danger">*</span></label>
+        <input type="text" class="form-control" id="title" [(ngModel)]="title" name="title">
+      </div>
+  
+      <div class="mb-3">
+        <label for="description" class="form-label">Description <span class="text-danger">*</span></label>
+        <textarea class="form-control" id="description" [(ngModel)]="description" name="description" rows="3"></textarea>
+      </div>
+  
+      <div class="mb-3">
+        <label for="dueDate" class="form-label">Due Date <span class="text-danger">*</span></label>
+        <input type="date" class="form-control" id="dueDate" [(ngModel)]="dueDate" name="dueDate">
+      </div>
+  
+      <div class="mb-3">
+        <label for="priority" class="form-label">Priority</label>
+        <select class="form-select" id="priority" [(ngModel)]="priority" name="priority">
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+        </select>
+      </div>
+  
+      <div class="mb-3">
+        <label for="status" class="form-label">Status</label>
+        <select class="form-select" id="status" [(ngModel)]="status" name="status">
+          <option value="Pending">Pending</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Completed">Completed</option>
+        </select>
+      </div>
+  
+      <div class="d-flex gap-2">
+        <button type="submit" class="btn btn-success">Save Changes</button>
+      </div>
+    </form>
+  </div>

@@ -13,6 +13,9 @@ import { TaskService } from '../../services/task';
 })
 export class TaskListComponent implements OnInit {
   tasks: Task[] = [];
+  showModal = false;
+  taskToDeleteId: number | null = null;
+  taskToDeleteTitle = '';
 
   constructor(private taskService: TaskService) {}
 
@@ -20,12 +23,24 @@ export class TaskListComponent implements OnInit {
     this.tasks = this.taskService.getTasks();
   }
 
-  deleteTask(id: number): void {
-    const confirmed = confirm('Are you sure you want to delete this task?');
-    if (confirmed) {
-      this.taskService.deleteTask(id);
+  confirmDelete(id: number, title: string): void {
+    this.taskToDeleteId = id;
+    this.taskToDeleteTitle = title;
+    this.showModal = true;
+  }
+
+  cancelDelete(): void {
+    this.showModal = false;
+    this.taskToDeleteId = null;
+    this.taskToDeleteTitle = '';
+  }
+
+  confirmDeleteFinal(): void {
+    if (this.taskToDeleteId !== null) {
+      this.taskService.deleteTask(this.taskToDeleteId);
       this.tasks = this.taskService.getTasks();
     }
+    this.cancelDelete();
   }
 
   toggleStatus(id: number): void {
